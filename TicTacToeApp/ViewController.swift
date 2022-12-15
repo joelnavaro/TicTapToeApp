@@ -46,6 +46,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         blockPlayboard()
+        //turnOneLabel.layer.cornerRadius = turnOneLabel.bounds.height/2
+        //turnOneLabel.clipsToBounds = true
+        p1Score.layer.borderColor = UIColor.gray.cgColor
+        p1Score.layer.borderWidth = 1
+        p1Score.layer.cornerRadius = 3
+        p1Score.clipsToBounds = true
+        
+        p2Score.layer.borderColor = UIColor.gray.cgColor
+        p2Score.layer.borderWidth = 1
+        p2Score.layer.cornerRadius = 3
+        p2Score.clipsToBounds = true
+        
+        screenMessage.layer.borderColor = UIColor.gray.cgColor
+        screenMessage.layer.borderWidth = 1
+        screenMessage.layer.cornerRadius = 3
+        screenMessage.clipsToBounds = true
         
         
     }
@@ -58,6 +74,8 @@ class ViewController: UIViewController {
                 playBoard.players.append(p1)
                 turnOneLabel.text = "X"
                 turnOneLabel.backgroundColor = UIColor.green
+                turnOneLabel.layer.cornerRadius = turnOneLabel.bounds.height/2
+                turnOneLabel.clipsToBounds = true
                 }
             let name2 = p2TxtField.text
             if let name2 =  name2{
@@ -65,6 +83,8 @@ class ViewController: UIViewController {
                 playBoard.players.append(p2)
                 turnTwoLabel.text = "O"
                 turnTwoLabel.backgroundColor = UIColor.red
+                turnTwoLabel.layer.cornerRadius = turnTwoLabel.bounds.height/2
+                turnTwoLabel.clipsToBounds = true
                 }
             unlockPlayboard()
             print("created players")
@@ -108,6 +128,8 @@ class ViewController: UIViewController {
             winningLine4.isHidden = true
             winningLine5.isHidden = true
             winningLine6.isHidden = true
+            winningLine7.isHidden = true
+            winningLine8.isHidden = true
             
             unlockPlayboard()
             print("new game")
