@@ -6,7 +6,7 @@ class PlayBoard{
     var boardArray : [Int?] = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
     var players = [Player]()
     
-    //decides the turns and the tokes for the payers
+    //checks the box and then, who's turn, to place a token and change turns
     func play(place: Int)-> Bool?{
         if (players[0].turn == true){
             boardArray[place] = players[0].token
