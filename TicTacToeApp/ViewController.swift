@@ -45,8 +45,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // testing comments
-        
         blockPlayboard()
         
         p1Score.layer.borderColor = UIColor.gray.cgColor
