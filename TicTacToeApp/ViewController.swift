@@ -46,8 +46,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         blockPlayboard()
-        //turnOneLabel.layer.cornerRadius = turnOneLabel.bounds.height/2
-        //turnOneLabel.clipsToBounds = true
+        
         p1Score.layer.borderColor = UIColor.gray.cgColor
         p1Score.layer.borderWidth = 1
         p1Score.layer.cornerRadius = 3
@@ -66,7 +65,7 @@ class ViewController: UIViewController {
         
     }
     @IBAction func startButton(_ sender: UIButton) {
-        //create 2 players if there are no players
+                                            //create 2 players if there are no players
         if (playBoard.players.isEmpty){
             let name1 = p1TxtField.text
             if let name1 = name1{
@@ -88,6 +87,7 @@ class ViewController: UIViewController {
                 }
             unlockPlayboard()
             print("created players")
+            
         }else if(playBoard.players[0].name != p1TxtField.text){ //if player 1 changes name
             let name1 = p1TxtField.text
             if let name1 = name1{
@@ -96,7 +96,9 @@ class ViewController: UIViewController {
                 playBoard.players[0].name = name1
                 playBoard.players[0].score = 0
                 }
+            p1Score.text = "\(playBoard.players[0].name)'s wins: \(String(playBoard.players[0].score))"
             screenMessage.text = "Press Start to begin"
+            
         }else if(playBoard.players[1].name != p2TxtField.text){ //if player 2 changes name
             let name2 = p2TxtField.text
             if let name2 = name2{
@@ -105,7 +107,9 @@ class ViewController: UIViewController {
                 playBoard.players[1].name = name2
                 playBoard.players[1].score = 0
                 }
+            p2Score.text = "\(playBoard.players[1].name)'s wins: \(String(playBoard.players[1].score))"
             screenMessage.text = "Press Start to begin"
+            
         }else{                                          //restarts game and views in playboard
             startButtonTxt.setTitle("Start", for: .normal)
             playBoard.restartGame()
@@ -136,16 +140,7 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    func scores(player: Player){
-        if(playBoard.boardArray[0] == 0){
-            p1Score.text = "\(player.name)'s wins: \(String(player.score))"
-        }else{
-            p2Score.text = "\(player.name)'s wins: \(String(player.score))"
-
-        }
-    }
-    
+    //shows a line over the winning section
     func showWinner(option: Int, player: Player){
         if (option == 1){
             winningLine1.isHidden = false
@@ -193,6 +188,7 @@ class ViewController: UIViewController {
             screenMessage.text = "The game ends in a draw"
             startButtonTxt.setTitle("Play Again", for: .normal)
         }
+        
         p1Score.text = "\(playBoard.players[0].name)'s wins: \(String(playBoard.players[0].score))"
         p2Score.text = "\(playBoard.players[1].name)'s wins: \(String(playBoard.players[1].score))"
     }
